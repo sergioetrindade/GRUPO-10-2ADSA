@@ -24,8 +24,8 @@ body{
 .usuario{
     border-radius: 50%;
     position: absolute;
-    top: -50px;
-    left: 112px;
+    top: -100px;
+    left: -10px;
 }
 
 h1{
