@@ -1,0 +1,20 @@
+.banner{
+    border-bottom: red;
+    height: 530px;
+    background: #adadad url(../imagens/pexels-pixabay-326461.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+.bannerBox{
+    padding: 70px 150px 150px 150px;
+    color: rgb(245, 236, 236);
+    width: 80%;
+}
+
+.bannerBox h1{
+    font-size: 95px;
+}
+
+.bannerBox h1 span{
+    color: yellow;
+}
