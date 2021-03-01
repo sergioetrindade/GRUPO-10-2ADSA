@@ -7,7 +7,7 @@
 
 body{
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     display: grid;
     grid-template-areas: 'navbar' 'main' 'footer';
     grid-template-rows: 75px minmax(100vh, auto) 85px;
@@ -35,14 +35,12 @@ body{
     align-items: center;
 }
 
-.logo h1{
-    font-size: 35px;
-}
+
 
 .navbar {
     grid-area: navbar;
     background-color: black;
-    border-bottom: 3px red solid;
+    border-bottom: 3px rgb(231, 228, 34) solid;
     display: flex;
     justify-content: space-around;
 }
@@ -66,6 +64,13 @@ main{
     border-radius: 5px;
     padding: 7px 13px;
     color: #fff;
-    text-decoration: .5s;
+    text-decoration: none;
+}
+
+.navbar a.activate,
+.navbar a:hover{
+    background-color: rgb(76, 77, 76);
+    color: red;
+    transition: .10s;
 }
 
