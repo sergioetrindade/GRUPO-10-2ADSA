@@ -6,7 +6,6 @@
 }
 
 body{
-    color: white;
     font-family: 'Courier New', Courier, monospace;
     display: grid;
     grid-template-areas: 'navbar' 'main' 'footer';
@@ -16,9 +15,8 @@ body{
 
 .container{
     width: 80%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin: auto;
+    height: auto;
 }
 
 .container2{
