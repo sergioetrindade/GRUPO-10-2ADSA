@@ -37,8 +37,8 @@ body{
 
 .navbar {
     grid-area: navbar;
+    width: 100%;
     background-color: black;
-    border-bottom: 3px rgb(231, 228, 34) solid;
     display: flex;
     justify-content: space-around;
 }
