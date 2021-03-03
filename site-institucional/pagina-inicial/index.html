@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/negocio.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+
+    <script>
+      window.onload = function(e) {
+    var offset = document.getElementsByClassName('navbar')[0].offsetTop;
+    var menu = document.getElementsByClassName('navbar')[0];
+
+    document.addEventListener('scroll', function() {
+        if (document.body.scrollTop > offset || document.documentElement.scrollTop > offset) {
+            menu.style.position = 'fixed';
+        } else {
+            menu.style.position = 'initial';
+        }
+    });
+}
+    </script>
+    
+    <title>Document</title>
+</head>
+<body>
+ 
+    <!--navbar-->
+    <header class="navbar">
+      <div class="container2">
+        <div class="logo">
+          <img src="./imagens/Logotipo - Grupo 10.png" width="100px" alt="">
+         
+        </div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+
+      </div> 
+           
+        </div>
+    </header> 
+   
+    <main class="main">
+
+      <!--banner-->
+
+      <div class="banner">
+        
+        <div class="bannerBox">
+           <h1>SEJA BEM VINDO <br> A <span>FADE SOLUTIONS</span></h1>
+        </div>
+      </div>
+
+      <div class="negocio">
+        <div class="container">
+  
+          <h2 class="titulo">Qual a importancia do nosso negócio para seu negócio?</h2>
+  
+          <div class="negocioBox">
+  
+               
+              <div class="quadro">
+  
+                <h5>Monitoramento eficaz</h5>
+  
+                <img src="../pagina-inicial/imagens/monitoramento.jpeg" class="imagemNegocio" alt="">
+              
+              </div>
+              <div class="quadro">
+  
+                <h5>Velocidade na solução de problemas</h5>
+                <img src="../pagina-inicial/imagens/velocidade.jpeg" class="imagemNegocio" alt="">
+  
+              </div>
+  
+              <div class="quadro">
+  
+                <h5>Analises e relatórios sobre o desempenho do seu negócio</h5>
+  
+                <img src="../pagina-inicial/imagens/negocio.jpeg" class="imagemNegocio1" height="100px" alt="">
+              
+              </div>
+          </div>  
+        </div>
+      </div>
+    </main>
+
+   
+    
+
+
+   
+      <footer class="footer">
+        <div class="container2">
+          <div class="logo">
+            <img src="./imagens/Logotipo - Grupo 10.png">
+          </div>
+
+          <span class="copyright">2021 copyright - Fade</span>
+        </div>
+      </footer>
+    
+  
+</body>
+</html>
