@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/negocio.css">
     <link rel="stylesheet" href="./CSS/main.css">
+
+    <script>
+      window.onload = function(e) {
+    var offset = document.getElementsByClassName('navbar')[0].offsetTop;
+    var menu = document.getElementsByClassName('navbar')[0];
+
+    document.addEventListener('scroll', function() {
+        if (document.body.scrollTop > offset || document.documentElement.scrollTop > offset) {
+            menu.style.position = 'fixed';
+        } else {
+            menu.style.position = 'initial';
+        }
+    });
+}
+    </script>
     
     <title>Document</title>
 </head>
