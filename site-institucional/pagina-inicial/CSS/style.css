@@ -39,7 +39,7 @@ body{
 .navbar {
     grid-area: navbar;
     width: 100%;
-    background-color: black;
+    background-image: linear-gradient(to bottom right, black , red);
     display: flex;
     justify-content: space-around;
 }
@@ -74,7 +74,7 @@ main{
 }
 
 .footer{
-    background-color: black;
+    background-image: linear-gradient(to bottom right, black , red);
     color: white;
     padding: 20px;
     justify-content: space-around;
