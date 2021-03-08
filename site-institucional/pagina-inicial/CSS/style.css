@@ -69,7 +69,7 @@ main{
 .navbar a.activate,
 .navbar a:hover{
     background-color: rgb(76, 77, 76);
-    color: red;
+    color: rgb(255, 251, 251);
     transition: .10s;
 }
 
