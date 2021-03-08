@@ -21,6 +21,50 @@ body{
    
 }
 
+.logo{
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    grid-area: navbar;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgb(49, 29, 29) );
+    display: flex;
+    justify-content: space-around;
+}
+
+main{
+    grid-area: main;
+}
+
+.navbar ul{
+    text-transform: uppercase;
+    display: flex;
+}
+    
+
+.navbar li{
+    list-style: none;
+    line-height: 75px;
+}
+
+.navbar a{
+    border-radius: 5px;
+    padding: 7px 13px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar a.activate,
+.navbar a:hover{
+    background-color: rgb(76, 77, 76);
+    color: rgb(255, 251, 251);
+    transition: .10s;
+}
+
 .usuario{
     border-radius: 50%;
     position: absolute;
