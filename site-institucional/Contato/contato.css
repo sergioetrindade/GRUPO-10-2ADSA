@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;;
+}
+
+#titulo{
+    font-family: sans-serif;
+    color: black;
+}
+
+#subtitulo{
+    font-family: sans-serif;
+    color: black;
+}
+
+.formulario{
+    margin-left: ;
+}
+fieldset{
+    border: 0;
+}
+
+body{
+    background-color: #F0F8FF;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: black;
+    margin-left: 36%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+input, select, textarea, button{
+    border-radius: 5px;
+}
+
+.campo{
+    margin-bottom: 1em;
+}
+.campo label{
+    margin-bottom: 0.2em;
+    color: black;
+    display: block;
+}
+
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea{
+    padding: 0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px;
+}
