@@ -1,25 +1,44 @@
 .sobre{
-    height: 300px;
-    background-color: ivory;
-    background-size: cover;
+    height: 720px;
+    background: #89d4fe url(../imagens/fundosobre.jpg) no-repeat scroll;
+    background-size:  1265px;
+    background-position: right;
     padding: 0px 0px 0px 0px;    
 }
 
-.sobre h3{
+.sobre h1{
     text-align: center;
-    margin-top: 30px;
     padding: 10px;
     color: rgb(233, 133, 40);
 }
 
-.p1{
-    text-align: left;
-    margin-bottom: 20px;
-  
-    align-items: center;
+.titulo{
+    border-radius: 50px;
+    
+    margin-bottom: 24px;
+    text-align: center;
+    justify-content: space-around;
+    background-color: white;
+
+}
+
+.box1{
+    height: 30%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    background-color: white;
+
+}
+
+.box1 p{
+    padding: 18px;
+    font-weight: bold;
+
+
 }
 
 .p2{
-    text-align: right;
-    align-items: center;
+    
 }
