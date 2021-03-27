@@ -13,6 +13,8 @@ body{
     grid-template-columns: auto;
 }
 
+/*corpo do site*/
+
 .container{
     width: 80%;
     margin: auto;
@@ -27,6 +29,8 @@ body{
     align-items: center;
 }
 
+/*logo da empresa*/
+
 .logo{
     color: rgb(12, 11, 11);
     font-weight: bolder;
@@ -35,7 +39,7 @@ body{
 }
 
 
-
+/*navbar*/
 .navbar {
     grid-area: navbar;
     width: 100%;
@@ -73,6 +77,8 @@ main{
     transition: .60s;
 }
 
+
+/*footer*/
 .footer{
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255) , rgb(255, 153, 19));
     color: rgb(14, 12, 12);

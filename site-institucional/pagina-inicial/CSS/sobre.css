@@ -1,3 +1,4 @@
+/*tela de sobre*/
 .sobre{
     height: 780px;
     background: #89d4fe url(../imagens/fundosobre.jpg) no-repeat scroll;
@@ -6,11 +7,15 @@
     padding: 0px 0px 0px 0px;    
 }
 
+/*titulo da tela de sobre*/
+
 .sobre h1{
     text-align: center;
     padding: 10px;
     color: #FF9D61;
 }
+
+
 
 .titulo{
     border-radius: 50px;
@@ -22,6 +27,8 @@
 
 }
 
+/*caixas de texto*/
+
 .box1{
     height: 30%;
     width: 30%;
@@ -31,6 +38,8 @@
     background-color: white;
 
 }
+
+/*texto das caixas*/
 
 .box1 p{
     padding: 18px;

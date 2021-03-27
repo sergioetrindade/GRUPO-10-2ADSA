@@ -1,12 +1,13 @@
+/*tela de negocio*/
+
 .negocio{
     height: 591px;
     background: #FF9D61 url(../imagens/fundo-negocio.jpg) no-repeat scroll;
     background-size: cover;
     padding: 20px 3px 7px 5px;
 }
-    
 
-
+/*titulo da tela de nogocio*/
 
 .negocio h2 {
     text-align: center;
@@ -15,6 +16,8 @@
     padding: 2rem;
 }
 
+
+/*bolinhas de imagens*/
 .quadro{
     display: flex;
     flex-direction: column;
@@ -22,6 +25,8 @@
     margin-right: 10%;
     margin-left: 5%;
 }
+
+/*formatação das imagens nas bolinhas*/
 
 .imagemNegocio{
     width: 228px;
@@ -37,6 +42,8 @@
 
 }
 
+/*caixa das bolinhas*/
+
 .negocioBox{
     padding: 2rem;
     display: flex;
@@ -45,11 +52,15 @@
     width: 100%;
 }
 
+/*titulo de cada bolinha*/
+
 .negocioBox h5{
     text-align: center;
     color: rgb(14, 14, 13);
     padding: 10px;
 }
+
+/*textos das bolinhas*/
  
 .negocioBox p{
     text-align: left ;
