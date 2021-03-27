@@ -75,7 +75,7 @@ main{
 
 .footer{
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255) , rgb(255, 153, 19));
-    color: white;
+    color: rgb(14, 12, 12);
     padding: 20px;
     justify-content: space-around;
     grid-area: footer;

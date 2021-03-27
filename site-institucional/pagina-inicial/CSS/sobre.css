@@ -1,6 +1,6 @@
 .sobre{
     height: 780px;
-    background: #89d4fe url(../imagens/fundosobre.jpg) no-repeat fixed;
+    background: #89d4fe url(../imagens/fundosobre.jpg) no-repeat scroll;
     background-size:  1265px;
     background-position: right;
     padding: 0px 0px 0px 0px;    
@@ -9,7 +9,7 @@
 .sobre h1{
     text-align: center;
     padding: 10px;
-    color: rgb(10, 10, 9);
+    color: #FF9D61;
 }
 
 .titulo{
