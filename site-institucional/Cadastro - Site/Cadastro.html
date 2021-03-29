@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Fade</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="navbar.css">
+    
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+    <div class="navbar">
+        <div class="navbarMid">
+            <div class="imgNavbar">
+                <img src="Logotipo.png">
+            </div>
+            <div class="textoNavbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="current">Login</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- Conteúdo principal -->
+
+    <div class="imgPrincipal">
+        <div class="cadastro">
+            <h2>CADASTRE-SE PARA ACESSAR O SISTEMA</h2>
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                    <p>Nome</p>
+                    <input name="nome">
+                    <p>E-mail</p>
+                    <input name="login">
+                    <p>Celular</p>
+                    <input name="celular" placeholder="00 00000-0000">
+                    <p>CPF</p>
+                    <input name="cpf" placeholder="000.000.000-00">
+                    <p>Cargo na empresa</p>
+                    <input name="cargo">
+                    <p>Senha</p>
+                    <input name="senha" type="password">
+                    <p>Código da empresa</p>
+                    <input name="loja">
+                    <button type="submit">CADASTRAR</button>
+                </form>
+        </div>
+    </div>
+
+</body>
+</html>
