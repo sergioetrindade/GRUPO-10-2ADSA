@@ -75,3 +75,12 @@
   background-color: white;
   color: black;
 }
+
+li,
+a,
+button {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.1em;
+  color: #edf0f1;
+  text-decoration: none;
+}
