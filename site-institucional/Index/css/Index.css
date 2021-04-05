@@ -76,6 +76,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .divDinheiroImg {
@@ -91,6 +92,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .divMaozinhaImg {
@@ -106,10 +108,17 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .divJoinhaImg {
   background-color: chartreuse;
   height: 300px;
   width: 300px;
+}
+
+.secConteudo p {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
 }
