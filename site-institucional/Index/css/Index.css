@@ -65,4 +65,51 @@ button:hover {
   background-color: cadetblue;
   width: 100%;
   height: 70vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.divDinheiro {
+  background-color: red;
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divDinheiroImg {
+  background-color: chartreuse;
+  height: 300px;
+  width: 300px;
+}
+
+.divMaozinha {
+  background-color: red;
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divMaozinhaImg {
+  background-color: chartreuse;
+  height: 300px;
+  width: 300px;
+}
+
+.divJoinha {
+  background-color: red;
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divJoinhaImg {
+  background-color: chartreuse;
+  height: 300px;
+  width: 300px;
 }
