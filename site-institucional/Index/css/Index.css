@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-body{
+body {
   background-color: #24252a;
 }
 
@@ -123,3 +123,39 @@ button:hover {
   text-align: center;
   font-size: 1.5rem;
 }
+
+.divContato{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.divContato p {
+  color: white;
+  font-size: 2.0rem;
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  font-size: 1.3rem;
+  color: white;
+}
+
+input{
+  width: 100%;
+  height: 30px;
+}
+
+.secForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+}
+
