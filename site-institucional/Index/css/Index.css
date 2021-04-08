@@ -2,13 +2,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   background-color: #24252a;
 }
 
 li,
 a,
 button {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.1em;
   color: #edf0f1;
   text-decoration: none;
@@ -56,8 +59,99 @@ button:hover {
   background-color: rgb(255, 99, 71);
 }
 
-.banner img{
+.banner img {
   width: 100%;
   height: 100vh;
+}
+
+.secConteudo {
+  width: 100%;
+  height: 77vh;
+  display: flex;
+  justify-content: space-between;
+  background-image: url("../Imgs/fundo\ negócio.jpg");
+}
+
+.divDinheiro {
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divDinheiroImg {
+  height: 300px;
+  width: 300px;
+}
+
+.divMaozinha {
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divMaozinhaImg {
+  height: 300px;
+  width: 300px;
+}
+
+.divJoinha {
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divJoinhaImg {
+  height: 300px;
+  width: 300px;
+}
+
+.secConteudo p {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.divContato{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.divContato p {
+  color: white;
+  font-size: 2.0rem;
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  font-size: 1.3rem;
+  color: white;
+}
+
+input{
+  width: 100%;
+  height: 30px;
+}
+
+.secForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
 }
 
