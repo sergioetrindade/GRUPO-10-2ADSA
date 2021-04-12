@@ -1,4 +1,0 @@
-#edf0f1; = branco
-#24252a; = cinza
-#ff6347; = laranja
-#0D71AC; = verde
