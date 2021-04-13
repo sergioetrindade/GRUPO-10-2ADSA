@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login - Fade</title>
+    <link rel="sortcut icon" href="./Imagens/icon_and_graphics_2.gif" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/Index.css">
+    
+
+
+</head>
+
+<!-- NAVBAR -->
+<header>
+    <img
+      src="./Imagens/Logotipo - Grupo 10.png"
+      alt="logo"
+      class="logo"
+      width="170px"
+      height="60px"
+    />
+    <nav>
+      <ul class="nav-links">
+        <li><a href="Index.html">Serviço</a></li>
+        <li><a href="Index.html">Nossa solução</a></li>
+        <li><a href="Sobre.html">Sobre nos</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="./Login.html"><button>Entrar</button></a>
+  </header>
+  <!-- NAVBAR -->
+  <!-- BANNER -->
+  <section>
+   
+  </section>
+  <!-- BANNER -->
+  
+</body>
+</html>
+
+
+    <div class="imgPrincipal">
+        <div class="login">
+            <h2>LOGIN NO SISTEMA</h2><br>
+                <form id="form_login" method="post" onsubmit="return entrar()">
+                    <p>E-mail</p>
+                    <br>
+                    <input name="login" placeholder="Ex:fadesolutions@gmail.com">
+                    <br>
+                    <p>Senha</p>
+                    <br>              
+                    <input name="senha" placeholder="Ex:123456">
+                    <br>
+                    <button type="submit">Login</button>
+                    <div class="divSenha">
+                    <br>
+                    <button type="submit">Esqueceu a senha?</button>
+                    <br>
+                    <br>                  
+                    <button type="submit"><a href="./Cadastro.html">Cadastre-se</a></button>          
+                  </div>
+                </form>
+        </div>
+    </div>
+
+<!-- FOOTER -->
+
+    <header>
+      <img
+        src="./Imagens/Logotipo - Grupo 10.png"
+        alt="logo"
+        class="logo"
+        width="200px"
+        height="80px"
+      />
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="#"
+              ><img
+                src="./Imagens/instagram.png"
+                width="50px"
+                height="50px"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./Imagens/facebook.png"
+                width="50px"
+                height="50px"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="./Imagens/linkedin.png"
+                width="60px"
+                height="50px"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Contato</button></a>
+    </header>
+    <!-- FOOTER -->
+
+
+</body>
+</html>
+
+<script>
+
+  function entrar() {
+      aguardar();
+      var formulario = new URLSearchParams(new FormData(form_login));
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          body: formulario
+      }).then(resposta => {
+
+          if (resposta.ok) {
+
+              resposta.json().then(json => {
+
+                  sessionStorage.login_usuario_meuapp = json.login;
+                  sessionStorage.nome_usuario_meuapp = json.nome;
+
+                  window.location.href = 'contato.html';
+              });
+
+          } else {
+
+              console.log('Erro de login!');
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizar_aguardar(texto);
+              });
+          }
+      });
+
+      return false;
+  }
+
+  function aguardar() {
+      btn_entrar.disabled = true;
+      img_aguarde.style.visibility = 'visible';
+      div_erro.style.visibility = 'hidden';
+  }
+
+  function finalizar_aguardar(resposta) {
+      btn_entrar.disabled = false;
+      img_aguarde.style.visibility = 'hidden';
+      div_erro.style.visibility = 'visible';
+      div_erro.innerHTML = resposta;
+  }
+
+</script>
+

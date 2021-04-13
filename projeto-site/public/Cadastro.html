@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Fade</title>
+    <link rel="stylesheet" href="../public/css/cadastro.css">
+    <link rel="stylesheet" href="../public/css/Index.css">
+    <link rel="sortcut icon" href="../public/Imagens/icon_and_graphics_2.gif" type="image/x-icon" />
+
+
+
+</head>
+
+<!-- NAVBAR -->
+<header>
+    <img
+      src="../public/Imagens/Logotipo - Grupo 10.png"
+      alt="logo"
+      class="logo"
+      width="170px"
+      height="60px"
+    />
+    <nav>
+      <ul class="nav-links">
+        <li><a href="Index.html">Serviço</a></li>
+        <li><a href="Index.html">Nossa solução</a></li>
+        <li><a href="Sobre.html">Sobre nos</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="../public/Login.html"><button>Entrar</button></a>
+  </header>
+  <!-- NAVBAR -->
+  <!-- BANNER -->
+  <section>
+   
+  </section>
+  <!-- BANNER -->
+  <!-- FOOTER -->
+  
+</body>
+</html>
+
+
+    <div class="imgPrincipal">
+        <div class="cadastro">
+            <h2>CADASTRE-SE PARA ACESSAR O SISTEMA</h2><br>
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                    <p>Nome</p>
+                    <input name="nome">
+                    <p>E-mail</p>
+                    <input name="login">
+                    <p>Celular</p>
+                    <input name="celular" placeholder="00 00000-0000">
+                    <p>CPF</p>
+                    <input name="cpf" placeholder="000.000.000-00">
+                    <p>Cargo na empresa</p>
+                    <input name="cargo">
+                    <p>Senha</p>
+                    <input name="senha" type="password">
+                    <p>Código da empresa</p>
+                    <input name="loja">
+                    <button type="submit">CADASTRAR</button>
+                </form>
+        </div>
+    </div>
+
+    <header>
+      <img
+        src="..//Imagens/Logotipo - Grupo 10.png"
+        alt="logo"
+        class="logo"
+        width="200px"
+        height="80px"
+      />
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="#"
+              ><img
+                src="../public/Imagens/instagram.png"
+                width="50px"
+                height="50px"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../public/Imagens/facebook.png"
+                width="50px"
+                height="50px"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../public/Imagens/linkedin.png"
+                width="60px"
+                height="50px"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Contato</button></a>
+    </header>
+    <!-- FOOTER -->
+
+
+</body>
+</html>
+
+<script>
+
+  function cadastrar() {
+      aguardar();
+      var formulario = new URLSearchParams(new FormData(form_cadastro));
+      fetch("/usuarios/cadastrar", {
+          method: "POST",
+          body: formulario
+      }).then(function (response) {
+          
+          if (response.ok) {
+
+              window.location.href='login.html';
+
+          } else {
+
+              console.log('Erro de cadastro!');
+              response.text().then(function (resposta) {
+                  div_erro.innerHTML = resposta;
+              });
+              finalizar_aguardar();
+          }
+      });
+
+      return false;
+  }
+
+  function aguardar() {
+      btn_entrar.disabled = true;
+      img_aguarde.style.display='block';
+      div_erro.style.display='none';
+  }
+
+  function finalizar_aguardar() {
+      btn_entrar.disabled = false;
+      img_aguarde.style.display='none';
+      div_erro.style.display='block';
+  }
+
+</script>
