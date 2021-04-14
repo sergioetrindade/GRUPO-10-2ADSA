@@ -1,130 +1,403 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <style>
+      canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+  </head>
 
-<head>
-	<title>Line Chart</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-	<style>
-		canvas {
-			-moz-user-select: none;
-			-webkit-user-select: none;
-			-ms-user-select: none;
-		}
-	</style>
-</head>
+  <body>
+    <!--NAVBAR-->
+    <header>
+      <img
+        src="../Imagens/Logotipo - Grupo 10.png"
+        alt="logo"
+        class="logo"
+        width="170px"
+        height="60px"
+      />
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#secConteudo">Serviço</a></li>
+          <li><a href="Contato.html">Solução</a></li>
+          <li><a href="#">Sobre nos</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="../public/Login.html"><a style="margin-top: 10px;"><img src="../Imagens/user.png" alt="" width="40px" height="40px"></a>
+    </header>
+    <!--NAVBAR-->
+    <br /><br />
 
-<body>
+
+
 	<section>
-		<h2>Média: <label id='average'>0.00</label></h2>
-		<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
 	</section>
-	<section style="width:100%">
-		<canvas id="chart"></canvas>
-	<section>
-	<script>
+    <section class="secGraficos">
+      <section style="width:45%; " class="secCpu">
+        <canvas id="chart"></canvas>
+      </section>
+      <section style="width: 45%" class="secMemoria">
+        <canvas id="chart2"></canvas>
+      </section>
+      
+    </section>
+	<br><br><br><br>
+	<section class="secDisco1">
+	<section style="width: 50%" class="secDisco">
+        <canvas id="chart3"></canvas>
+      </section>
+	</section>
+    <script>
+      var context = document.getElementById("chart").getContext("2d");
+      context.canvas.width = 1000;
+      context.canvas.height = 300;
 
-		var context = document.getElementById("chart").getContext("2d");
-		context.canvas.width = 1000;
-		context.canvas.height = 300;
-        
-        var configuration = {
-			type: 'bar',
-			data: {
-				datasets: [{
-					label: "Temperature x Time",
-					type: 'bar',
-					backgroundColor: ['rgba(255, 99, 0, 0.2)'],
-					borderColor: ['#0000CD'], 
-				}]
-			},
-			options: {
-				scales: {
-					xAxes: [{
-						//type: 'value',
-						distribution: 'series',
-                        ticks: {
-							beginAtZero:true,
-							maxticksLimit: 5
-                        }
-					}],
-					yAxes: [{
-						scaleLabel: {
-							display: true,
-							labelString: 'Temperature'
-                        },
-                        ticks: {
-							beginAtZero:true,
-							suggestedMin: 0,
-							suggestedMax: 30
-                        }
-					}]
-				},
-				animation: {
-					duration: 0
-				}
-			}
-        };
-        
-		var chart = new Chart(context, configuration);
+      var configuration = {
+        type: "line",
+        data: {
+          datasets: [
+            {
+              label: "CPU",
+              type: "line",
+              backgroundColor: ["#1111"],
+              borderColor: ["#ff6347"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            labels: {
+              fontColor: "white",
+              fontSize: 16,
+            },
+          },
 
-        //Função para obter os dados de temperatura do server
-        //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
-        
-        //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-        //hora de montar/atualizar o gráfico
-        this.lastIndexTemp = 0;
-        this.time = 0;
+          scales: {
+            xAxes: [
+              {
+                //type: 'value',
+                distribution: "series",
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  maxticksLimit: 5,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "USO %",
+				  fontColor: "white",
+                },
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  suggestedMin: 0,
+                  suggestedMax: 30,
+                },
+              },
+            ],
+          },
+          animation: {
+            duration: 0,
+          },
+        },
+      };
 
-        function get_data(){
+      var chart = new Chart(context, configuration);
 
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3000/api', false);
-            http.send(null);        
-			
-            var obj = JSON.parse(http.responseText);
-			console.log(obj)
-            if (obj.data.length == 0){
-                return;
-            }
+      //Função para obter os dados de temperatura do server
+      //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
 
-            var _lastIndexTemp = this.lastIndexTemp;
-            this.lastIndexTemp = obj.data.length;
-            listTemp = obj.data.slice(_lastIndexTemp);
+      //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+      //hora de montar/atualizar o gráfico
+      this.lastIndexTemp = 0;
+      this.time = 0;
 
-            listTemp.forEach(data => {
-                //Máximo de 60 itens exibidos no gráfico
-                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
-                    chart.data.labels.shift();
-                    chart.data.datasets[0].data.shift();
-                }
+      function get_data() {
+        var http = new XMLHttpRequest();
+        http.open("GET", "http://localhost:3000/api", false);
+        http.send(null);
 
-                chart.data.labels.push(this.time++);
-                chart.data.datasets[0].data.push(parseFloat(data));
-                chart.update();
-			});
-			
-			document.getElementById('average').textContent = obj.average;
-			document.getElementById('averageHour').textContent = obj.averageHour;
-		} 
-		
-		get_data();
+        var obj = JSON.parse(http.responseText);
+        console.log(obj);
+        if (obj.data.length == 0) {
+          return;
+        }
 
+        var _lastIndexTemp = this.lastIndexTemp;
+        this.lastIndexTemp = obj.data.length;
+        listTemp = obj.data.slice(_lastIndexTemp);
 
-		function sendTemperature(){
-			var http = new XMLHttpRequest();
-            http.open('POST', 'http://localhost:3000/api/sendData', false);
-            http.send(null);
-		}
+        listTemp.forEach((data) => {
+          //Máximo de 60 itens exibidos no gráfico
+          if (
+            chart.data.labels.length == 10 &&
+            chart.data.datasets[0].data.length == 10
+          ) {
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+          }
 
-        setInterval(() => {
-			sendTemperature();
-			get_data();
-        }, 1000);
+          chart.data.labels.push(this.time++);
+          chart.data.datasets[0].data.push(parseFloat(data));
+          chart.update();
+        });
+      }
 
-	</script>
-</body>
+      get_data();
 
+      function sendTemperature() {
+        var http = new XMLHttpRequest();
+        http.open("POST", "http://localhost:3000/api/sendData", false);
+        http.send(null);
+      }
+
+      setInterval(() => {
+        sendTemperature();
+        get_data();
+      }, 4000);
+
+      // MEMORIA
+      // ---------------------------------------
+
+      var context = document.getElementById("chart2").getContext("2d");
+      context.canvas.width = 1000;
+      context.canvas.height = 300;
+
+      var configuration = {
+        type: "line",
+        data: {
+          datasets: [
+            {
+              label: "MEMORIA",
+              type: "line",
+              backgroundColor: ["#1111"],
+              borderColor: ["#ff6347"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            labels: {
+              fontColor: "white",
+              fontSize: 16,
+            },
+          },
+
+          scales: {
+            xAxes: [
+              {
+                //type: 'value',
+                distribution: "series",
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  maxticksLimit: 5,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "USO %",
+				  fontColor: "white",
+                },
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  suggestedMin: 0,
+                  suggestedMax: 30,
+                },
+              },
+            ],
+          },
+          animation: {
+            duration: 0,
+          },
+        },
+      };
+
+      var chart = new Chart(context, configuration);
+
+      //Função para obter os dados de temperatura do server
+      //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+      //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+      //hora de montar/atualizar o gráfico
+      this.lastIndexTemp = 0;
+      this.time = 0;
+
+      function get_data() {
+        var http = new XMLHttpRequest();
+        http.open("GET", "http://localhost:3000/api", false);
+        http.send(null);
+
+        var obj = JSON.parse(http.responseText);
+        console.log(obj);
+        if (obj.data.length == 0) {
+          return;
+        }
+
+        var _lastIndexTemp = this.lastIndexTemp;
+        this.lastIndexTemp = obj.data.length;
+        listTemp = obj.data.slice(_lastIndexTemp);
+
+        listTemp.forEach((data) => {
+          //Máximo de 60 itens exibidos no gráfico
+          if (
+            chart.data.labels.length == 10 &&
+            chart.data.datasets[0].data.length == 10
+          ) {
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+          }
+
+          chart.data.labels.push(this.time++);
+          chart.data.datasets[0].data.push(parseFloat(data));
+          chart.update();
+        });
+      }
+
+      get_data();
+
+      function sendTemperature() {
+        var http = new XMLHttpRequest();
+        http.open("POST", "http://localhost:3000/api/sendData", false);
+        http.send(null);
+      }
+
+      setInterval(() => {
+        sendTemperature();
+        get_data();
+      }, 4000);
+
+      // DISCO
+      // ---------------------------------------
+
+      context = document.getElementById("chart3").getContext("2d");
+      context.canvas.width = 1000;
+      context.canvas.height = 300;
+
+      var configuration = {
+        type: "line",
+        data: {
+          datasets: [
+            {
+              label: "DISCO",
+              type: "line",
+              backgroundColor: ["#1111"],
+              borderColor: ["#ff6347"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            labels: {
+              fontColor: "white",
+              fontSize: 16,
+            },
+          },
+          scales: {
+            xAxes: [
+              {
+                //type: 'value',
+                distribution: "series",
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  maxticksLimit: 5,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "USO %",
+				  fontColor:"white"
+                },
+                ticks: {
+                  fontColor: "white",
+                  beginAtZero: true,
+                  suggestedMin: 0,
+                  suggestedMax: 30,
+                },
+              },
+            ],
+          },
+          animation: {
+            duration: 0,
+          },
+        },
+      };
+
+      var chart = new Chart(context, configuration);
+
+      //Função para obter os dados de temperatura do server
+      //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+      //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+      //hora de montar/atualizar o gráfico
+      this.lastIndexTemp = 0;
+      this.time = 0;
+
+      function get_data() {
+        var http = new XMLHttpRequest();
+        http.open("GET", "http://localhost:3000/api", false);
+        http.send(null);
+
+        var obj = JSON.parse(http.responseText);
+        console.log(obj);
+        if (obj.data.length == 0) {
+          return;
+        }
+
+        var _lastIndexTemp = this.lastIndexTemp;
+        this.lastIndexTemp = obj.data.length;
+        listTemp = obj.data.slice(_lastIndexTemp);
+
+        listTemp.forEach((data) => {
+          //Máximo de 60 itens exibidos no gráfico
+          if (
+            chart.data.labels.length == 10 &&
+            chart.data.datasets[0].data.length == 10
+          ) {
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+          }
+
+          chart.data.labels.push(this.time++);
+          chart.data.datasets[0].data.push(parseFloat(data));
+          chart.update();
+        });
+      }
+
+      get_data();
+
+      function sendTemperature() {
+        var http = new XMLHttpRequest();
+        http.open("POST", "http://localhost:3000/api/sendData", false);
+        http.send(null);
+      }
+
+      setInterval(() => {
+        sendTemperature();
+        get_data();
+      }, 4000);
+    </script>
+  </body>
 </html>
