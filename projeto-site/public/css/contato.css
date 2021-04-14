@@ -1,50 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-#titulo{
-    font-family: sans-serif;
-    color: black;
+body {
+  background-color: #24252a;
 }
 
-#subtitulo{
-    font-family: sans-serif;
-    color: black;
+li,
+a,
+button {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.1em;
+  color: #edf0f1;
+  text-decoration: none;
 }
 
-.formulario{
-    margin-left: ;
-}
-fieldset{
-    border: 0;
-}
-
-body{
-    background-color: #F0F8FF;
-    font-family: sans-serif;
-    font-size: 1em;
-    color: black;
-    margin-left: 36%;
-    margin-top: 2%;
-    justify-content: center;
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10%;
 }
 
-input, select, textarea, button{
-    border-radius: 5px;
+.logo {
+  cursor: pointer;
 }
 
-.campo{
-    margin-bottom: 1em;
-}
-.campo label{
-    margin-bottom: 0.2em;
-    color: black;
-    display: block;
+.nav-links {
+  list-style: none;
 }
 
-.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea{
-    padding: 0.2em;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px;
+.nav-links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav-links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+  color: #ff6347;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: rgb(255, 99, 71);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: rgb(255, 99, 71);
+}
+
+.banner img {
+  width: 100%;
+  height: 100vh;
+}
+
+.divContato {
+  display: flex;
+  justify-content: center;
+}
+
+.divContato p {
+  color: white;
+  font-size: 2rem;
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.3rem;
+  color: white;
+}
+
+.secForm  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+}
+
+input{
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
 }
