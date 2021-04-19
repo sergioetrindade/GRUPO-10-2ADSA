@@ -86,10 +86,6 @@ button:hover {
   font-size: 2.3rem;
 }
 
-.divContSolucaoCont {
- 
-}
-
 .secConteudo {
   width: 100%;
   height: 77vh;
@@ -145,4 +141,17 @@ button:hover {
   text-align: center;
   font-size: 1.5rem;
   width: 80%;
+}
+
+.secGraficos{
+  display: flex;
+  justify-content: space-between;
+}
+
+.secDisco1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
 }
