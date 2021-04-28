@@ -97,7 +97,7 @@ button:hover {
 }
 
 .divDinheiro {
-  width: 30vw;
+  width: 30%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -117,11 +117,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+ 
 }
 
 .divMaozinhaImg {
   height: 300px;
   width: 300px;
+  margin-top: 10px;
 }
 
 .divJoinha {
@@ -131,20 +133,22 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .divJoinhaImg {
   background-color: white;
-  border-radius: 152px;
+  border-radius: 40px;
   height: 161px;
   width: 169px;
+  margin-bottom: 20px;
 }
 
 .secConteudo p {
   color: white;
   text-align: center;
   font-size: 1.5rem;
-  width: 80%;
+  width: 87%;
 }
 
 .secGraficos{
