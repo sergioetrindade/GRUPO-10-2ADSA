@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 body {
@@ -11,7 +13,7 @@ body {
 li,
 a,
 button {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.1em;
   color: #edf0f1;
   text-decoration: none;
@@ -132,8 +134,10 @@ button:hover {
 }
 
 .divJoinhaImg {
-  height: 300px;
-  width: 300px;
+  background-color: white;
+  border-radius: 152px;
+  height: 161px;
+  width: 169px;
 }
 
 .secConteudo p {
