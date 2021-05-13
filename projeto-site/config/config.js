@@ -1,9 +1,9 @@
 module.exports = {
   production: {
-    username: 'logicagora',
-    password: '#Gf45455505840',
-    database: 'bdProjeto1sem',
-    host: 'bdprojeto1sem.database.windows.net',
+    username: 'fadesolutions',
+    password: 'urubu1@@',
+    database: 'bdProjeto2sem',
+    host: 'fadesolutions.database.windows.net',
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
