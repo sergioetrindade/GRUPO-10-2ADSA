@@ -31,7 +31,7 @@
         <li><a href="contato.html">Contato</a></li>
       </ul>
     </nav>
-    <a class="cta" href="./Cadastro.html"><button>Entrar</button></a>
+    <a class="cta" href="./Login.html"><button>Entrar</button></a>
   </header>
   <!-- NAVBAR -->
   <!-- BANNER -->
@@ -47,23 +47,19 @@
     <div class="imgPrincipal">
         <div class="login">
             <h2>LOGIN NO SISTEMA</h2><br>
-                <!-- <form id="form_login" method="post" onsubmit="return entrar()"> -->
-                    <p>E-mail</p>
+                 <form id="form_login" method="post" onsubmit="return entrar()">
+                    <p>Usuario</p>
+                    <input name="login" placeholder="usuario" required="required">
                     <br>
-                    <input name="login" placeholder="Ex:fadesolutions@gmail.com">
+                    <p>Senha</p>   
+                    <input name="senha" required="required" type="password"> 
                     <br>
-                    <p>Senha</p>
-                    <br>              
-                    <input name="senha" placeholder="Ex:123456">
-                    <br>
-                    <a href="../public/Dashboard/index.html"><button type="submit">Login</button></a>
+                    <button>Login</button>
                     <div class="divSenha">
-                    <br>
                     <button type="submit">Esqueceu a senha?</button>
-                    <br>
-                    <br>                  
-                    <button type="submit"><a href="./Cadastro.html">Cadastre-se</a></button>          
+                    <br>              
                   </div>
+                  <button type="submit"><a href="./Cadastro.html">Cadastre-se</a></button>
                 </form>
         </div>
     </div>
@@ -75,37 +71,36 @@
 
 <script>
 
-  function entrar() {
-      aguardar();
-      var formulario = new URLSearchParams(new FormData(form_login));
-      fetch("/usuarios/autenticar", {
-          method: "POST",
-          body: formulario
-      }).then(resposta => {
+function entrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
 
-          if (resposta.ok) {
+            if (resposta.ok) {
 
-              resposta.json().then(json => {
+                resposta.json().then(json => {
 
-                  sessionStorage.login_usuario_meuapp = json.login;
-                  sessionStorage.nome_usuario_meuapp = json.nome;
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
 
-                  window.location.href = 'contato.html';
-              });
+                    window.location.href = './Dashboard/Dashboard.html';
+                });
 
-          } else {
+            } else {
 
-              console.log('Erro de login!');
+                alert('Erro de login!');
+                    
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
 
-              resposta.text().then(texto => {
-                  console.error(texto);
-                  finalizar_aguardar(texto);
-              });
-          }
-      });
-
-      return false;
-  }
+        return false;
+    }
 
   function aguardar() {
       btn_entrar.disabled = true;

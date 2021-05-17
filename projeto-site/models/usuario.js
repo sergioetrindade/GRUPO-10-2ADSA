@@ -8,16 +8,11 @@ https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 module.exports = (sequelize, DataTypes) => {
     let Usuario = sequelize.define('Usuario',{
 		id: {
-			field: 'id',
+			field: 'idUsuario',
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true
 		},		
-		nome: {
-			field: 'nome',
-			type: DataTypes.STRING,
-			allowNull: false
-		},
 		login: {
 			field: 'login',
 			type: DataTypes.STRING,
