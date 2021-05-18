@@ -5,15 +5,22 @@
  */
 package telas;
 
+import api.ConnectionBD;
 import com.github.britooo.looca.api.core.Looca;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oshi.util.FormatUtil;
 
 
 public class TelaPrincipal extends javax.swing.JFrame {
     Looca api = new Looca();
     Timer timer = new Timer();
+    
+    private ConnectionBD conectoryFactory;
     
     //Quantos Segundos a RAM vai atualizar(2s)
     final long SEGUNDOSRAM = (1000 * 2 );
@@ -100,6 +107,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(cpu, 0, SEGUNDOSCPU);
        
         
+    }
+    
+    
+        public void run() {
+        
+        PreparedStatement stn = null;
+        
+        String insertQuery = String.format("INSERT INTO registro (cpul, disco, memoria, dataHora, idMaquina)) values ('%s', %d, %d, getdate(), 1)",api.getProcessador().getUso().toString().replaceAll(",", "."), api.getGrupoDeDiscos().getTamanhoTotal(), api.getMemoria().getEmUso());
+        
+        try {
+            stn = conectoryFactory.prepareStatement(insertQuery);
+            
+            stn.executeUpdate();
+            
+        } catch (SQLException ex){
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
