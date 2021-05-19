@@ -13,10 +13,10 @@ import java.sql.PreparedStatement;
 public class ConnectionBD {
         
     String connectionUrl
-            = "jdbc:sqlserver://"
-            + "database=;"
-            + "user=;"
-            + "password=;"
+            = "jdbc:sqlserver:/fadesolutions.database.windows.net/"
+            + "database=bdProjeto2sem;"
+            + "user=fadesolutions;"
+            + "password=urubu1@@;"
           + "encrypt=true;";
 
 
