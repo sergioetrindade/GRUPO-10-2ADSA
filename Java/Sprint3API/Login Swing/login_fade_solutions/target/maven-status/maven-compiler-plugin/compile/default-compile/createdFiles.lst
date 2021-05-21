@@ -1,5 +1,6 @@
 dao\users\Users.class
 telas\Login.class
+api\ConnectionBD.class
 api\Api.class
 telas\Login$7.class
 telas\TelaPrincipal$5.class
@@ -14,7 +15,6 @@ telas\TelaPrincipal$3.class
 telas\TelaPrincipal$4.class
 telas\timer.class
 telas\Login$6.class
-api\ConectionBD.class
 dao\users\CadastroUser.class
 telas\TelaPrincipal.class
 telas\Login$1.class

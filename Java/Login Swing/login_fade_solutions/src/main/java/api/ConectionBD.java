@@ -16,8 +16,7 @@ package api;
 public class ConectionBD {
         
     String urlConection = null;
-    Connection connection = null;
-   
+    Connection connection = null; 
  
 
 

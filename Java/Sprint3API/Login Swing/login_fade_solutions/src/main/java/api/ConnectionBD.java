@@ -17,7 +17,7 @@ public class ConnectionBD {
             + "database=bdProjeto2sem;"
             + "user=fadesolutions;"
             + "password=urubu1@@;"
-          + "encrypt=true;";
+            + "encrypt=true;";
 
 
     public Connection getConnection() throws SQLException {

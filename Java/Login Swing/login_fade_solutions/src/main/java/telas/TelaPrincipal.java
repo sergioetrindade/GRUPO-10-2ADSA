@@ -23,58 +23,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     final long SEGUNDOSDISCOS = (1000 * 2 );
     //Quantos Segundos a CPU vai atualizar (3s)
     final long SEGUNDOSCPU = (1000 * 3 );
-     
-     
-     
-        //AQUI RODAMOS AS INFORMAÇÕES DA RAM
-        TimerTask ram = new TimerTask(){
-            @Override
-            public void run(){
-                var memoriaEmUso = (FormatUtil.formatBytes(api.getMemoria().getEmUso()));
-                var memoriaTotal = (FormatUtil.formatBytes(api.getMemoria().getTotal()));
-                var memoriaDisponivel = (FormatUtil.formatBytes(api.getMemoria().getDisponivel()));
-                
-                 lblRamUso.setText(memoriaEmUso);
-                 lblTotalRam.setText(memoriaTotal);
-                 lblRamDisponivel.setText(memoriaDisponivel);
-                 
-            }
-        };
+    //AQUI RODAMOS AS INFORMAÇÕES DA RAM
+        TimerTask ram;
+    //AQUI RODAMOS AS INFORMAÇÕES DOS PROCESSOS
+        TimerTask processos;
+    //AQUI RODAMOS AS INFORMAÇÕES DA DISCO
+        TimerTask disco;
+    //AQUI RODAMOS AS INFORMAÇÕES DA CPU
+         TimerTask cpu;
         
-        //AQUI RODAMOS AS INFORMAÇÕES DOS PROCESSOS
-        TimerTask processos = new TimerTask(){
-            @Override
-            public void run(){
-                
-                listProcesso.setText("");
-                
-              var teste = api.getGrupoDeProcessos().getProcessos();
-              
-                for(int x=0; x<teste.size();x++){
-                 
-                    listProcesso.setText(listProcesso.getText()+teste.get(x).getNome()+"\n");
-             }
-            }
-        };
-       
-        //AQUI RODAMOS AS INFORMAÇÕES DA DISCO
-        TimerTask disco = new TimerTask(){
-            @Override
-            public void run(){
-                var discoEmUso = (FormatUtil.formatBytes(api.getGrupoDeDiscos().getQuantidadeDeDiscos()));
-                var discoTotal = (FormatUtil.formatBytes(api.getGrupoDeDiscos().getTamanhoTotal()));
-                var discoDisponivel = api.getGrupoDeDiscos().getVolumes();
-                
-                        for(int x=0; x<discoDisponivel.size();x++){
-                    lblDiscoDisponivel.setText("");
-                    lblDiscoDisponivel.setText(String.format("%.1f GiB", new Double(lblDiscoDisponivel.getText()+discoDisponivel.get(x).getDisponivel()) / 1000000000));
-             }
-                
-                 lblTotalDisco.setText(discoTotal);
-            }
-        };
-        //AQUI RODAMOS AS INFORMAÇÕES DA CPU
-         TimerTask cpu = new TimerTask(){
+        
+    public TelaPrincipal() {
+        this.cpu = new TimerTask(){
             @Override
             public void run(){
                 var cpuUso = api.getProcessador().getUso();
@@ -85,10 +45,49 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 lblFrequencia.setText(cpuFrequencia);
                 lblTempo.setText(cpuTempo);
             }
-         };
-        
-        
-    public TelaPrincipal() {
+        };
+        this.disco = new TimerTask(){
+            @Override
+            public void run(){
+                var discoEmUso = (FormatUtil.formatBytes(api.getGrupoDeDiscos().getQuantidadeDeDiscos()));
+                var discoTotal = (FormatUtil.formatBytes(api.getGrupoDeDiscos().getTamanhoTotal()));
+                var discoDisponivel = api.getGrupoDeDiscos().getVolumes();
+                
+                for(int x=0; x<discoDisponivel.size();x++){
+                    lblDiscoDisponivel.setText("");
+                    lblDiscoDisponivel.setText(String.format("%.1f GiB", new Double(lblDiscoDisponivel.getText()+discoDisponivel.get(x).getDisponivel()) / 1000000000));
+                }
+                
+                lblTotalDisco.setText(discoTotal);
+            }
+        };
+        this.ram = new TimerTask(){
+            @Override
+            public void run(){
+                var memoriaEmUso = (FormatUtil.formatBytes(api.getMemoria().getEmUso()));
+                var memoriaTotal = (FormatUtil.formatBytes(api.getMemoria().getTotal()));
+                var memoriaDisponivel = (FormatUtil.formatBytes(api.getMemoria().getDisponivel()));
+                
+                lblRamUso.setText(memoriaEmUso);
+                lblTotalRam.setText(memoriaTotal);
+                lblRamDisponivel.setText(memoriaDisponivel);
+                
+            }
+        };
+        this.processos = new TimerTask(){
+            @Override
+            public void run(){
+                
+                listProcesso.setText("");
+                
+                var teste = api.getGrupoDeProcessos().getProcessos();
+                
+                for(int x=0; x<teste.size();x++){
+                    
+                    listProcesso.setText(listProcesso.getText()+teste.get(x).getNome()+"\n");
+                }
+            }
+        };
         initComponents();
        //AQUI CHAMAMOS AS INFORMAÇÕES DA RAM DE 2 EM 2 SEGUNDOS
         timer.scheduleAtFixedRate(ram, 0, SEGUNDOSRAM);

@@ -26,9 +26,6 @@ public class TesteApi {
        
        Processador processador = looca.getProcessador();
        System.out.println(processador);
-       
-     
-       
-       
+ 
     }   
 }

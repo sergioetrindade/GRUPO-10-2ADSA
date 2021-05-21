@@ -20,10 +20,6 @@ public class Connection {
         dataSource​.setDriverClassName("\"com.mysql.cj.jdbc.Driver");
         dataSource​.setUrl("jdbc:mysql://localhost:3306/Localhost Fade");  
         dataSource​.setUsername("fade");
-        dataSource​.setPassword("urubu1@@");
-        
-        
-        
-        
+        dataSource​.setPassword("urubu1@@");   
     }
 }
