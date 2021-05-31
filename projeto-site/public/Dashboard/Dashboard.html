@@ -12,6 +12,8 @@
 
 </head>
 
+
+
 <body id="body-pd">
     <div class="l-navbar" id="navbar">
         <nav class="nav">
@@ -61,16 +63,21 @@
     <section class="graphicsContainer">
         <div class="graphics">
             <section class="graphicsCont">
+          
                 <section>
-                    <img src="../Imagens/disco.png" width="870px" height="375" alt="" class="imagem">
+                    <canvas class="line-chart"></canvas>
+                </section>
+
+                <section>
+                    <canvas class="line-chart1"></canvas>
                 </section>
                 <section>
-                    <img src="../Imagens/CPU.png" width="870px" height="375" alt="" class="imagem">
+                    <canvas class="line-chart2"></canvas>
+
                 </section>
-              
-            </section>
-            <section class="graphicRam">
-                <img src="../Imagens/RAM.png" width="870px" height="375" alt="" class="imagem">
+          
+     
+            
             </section>
         </div>
 
@@ -81,6 +88,64 @@
 
     <!-- ===== MAIN JS ===== -->
     <script src="assets/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+<script>
+var ctx = document.getElementsByClassName("line-chart");
+
+var chartGraph = new Chart(ctx, { 
+	type: 'line',
+	data: {
+	labels: ["jan","Fev","Mar","Abr","Mai"],
+	datasets: [{
+	label: "TAXA DE CLIQUES - 2017",
+	data: [5,10,5,14,20,15,6,10],
+	borderWidth: 6,
+	borderColor: 'rgba(77.166,253,0,85)',
+	backgroundColor: 'transpar'
+	}]
+}
+});
+
+
+var ctx = document.getElementsByClassName("line-chart1");
+
+var chartGraph = new Chart(ctx, { 
+	type: 'line',
+	data: {
+	labels: ["jan","Fev","Mar","Abr","Mai"],
+	datasets: [{
+	label: "TAXA DE CLIQUES - 2017",
+	data: [5,10,5,14,20,15,6,10],
+	borderWidth: 6,
+	borderColor: 'rgba(77.166,253,0,85)',
+	backgroundColor: 'transpar'
+	}]
+}
+});
+
+var ctx = document.getElementsByClassName("line-chart2");
+
+var chartGraph = new Chart(ctx, { 
+	type: 'line',
+	data: {
+	labels: ["jan","Fev","Mar","Abr","Mai"],
+	datasets: [{
+	label: "TAXA DE CLIQUES - 2017",
+	data: [5,10,5,14,20,15,6,10],
+	borderWidth: 6,
+	borderColor: 'rgba(77.166,253,0,85)',
+	backgroundColor: 'transpar'
+	}]
+}
+});
+
+
+</script>
+
+
 </body>
 
 </html>
