@@ -8,7 +8,10 @@
     <script src="https://kit.fontawesome.com/ea789fb8b0.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
+
 <body>
+    
 <div class="container">
     <div class="content first-content">
             <div class="first-column">
@@ -45,34 +48,43 @@
                 <form id="form_cadastro" method="post" onsubmit="return cadastrar()" class="form">
                     <label class="label-input">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Usuario">
+                        <input name="login" type="text" placeholder="Usuario">
                     </label>
 
                     <label class="label-input">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="celular">
+                        <input name="celular" type="text" placeholder="celular">
                     </label>
 
                     <label class="label-input">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="cpf">
+                        <input name="cpf" type="text" placeholder="cpf">
                     </label>
 
                     <label class="label-input">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="loja">
+                        <input name="loja" placeholder="loja">
                     </label>
                     <label class="label-input">
                         <i class="fas fa-unlock icon-modify"></i>
-                        <input type="password" placeholder="senha">
+                        <input name="senha" type="password" placeholder="senha">
                     </label>
+                        <button id="btnSubmit" type="submit" class="btn btn-secound">sign up</button>
                 </form>
 
-                <button class="btn btn-secound">sign up</button>
+                
 
             </div>
 
     </div>
+
+
+
+
+
+
+
+
 
     <div class="content secound-content">
         <div class="first-column">
@@ -110,15 +122,16 @@
             <form id="form_login" method="POST" onsubmit="return entrar()" class="form">
                 <label class="label-input">
                     <i class="far fa-envelope icon-modify"></i>
-                    <input type="email" placeholder="email">
+                    <input name="login" placeholder="email">
                 </label>
                 <label class="label-input">
                     <i class="fas fa-unlock icon-modify"></i>
-                    <input type="password" placeholder="senha">
-                </label>
+                    <input name="senha" type="password" placeholder="senha">
+                </label>  
+                    <button class="btn btn-secound">sign in</button>
             </form>
 
-            <button class="btn btn-secound">sign in</button>
+          
         </div>  
     </div>
 </div>
@@ -127,6 +140,7 @@
 </html>
 
 <script>
+    //tela de login conexao
 function entrar() {
     // aguardar();
     var formulario = new URLSearchParams(new FormData(form_login));
@@ -142,7 +156,7 @@ function entrar() {
                 sessionStorage.login_usuario_meuapp = json.login;
                 sessionStorage.nome_usuario_meuapp = json.nome;
 
-                window.location.href = './Dashboard/Dashboard.html';
+                window.location.href = '../Dashboard/Dashboard.html';
             });
 
         } else {
@@ -174,9 +188,18 @@ function finalizar_aguardar(resposta) {
 </script>
 
 
+
+
+
+
+
+
+
+
 <script>
 
     function cadastrar() {
+        var transfer = document.getElementById("signin");
             var formulario = new URLSearchParams(new FormData(form_cadastro));
             fetch("/usuarios/cadastrar", {
                 method: "POST",
@@ -185,7 +208,7 @@ function finalizar_aguardar(resposta) {
                 
                 if (response.ok) {
     
-                    window.location.href='./login.html';
+                    window.location.href= './login/login.html';
                     alert('Faça login para confirmar que foi registrado!')
     
                 } else {
