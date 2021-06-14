@@ -13,7 +13,19 @@ public class Conexao {
                 + "password=urubu1@@;"
             + "encrypt=true;";
 
+    
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(connectionUrl);
     }
+    
+
+    
+    
+  public Connection getConnectionDocker() throws SQLException, ClassNotFoundException{
+      Class.forName ("com.mysql.cj.jdbc.Driver");
+      return DriverManager.getConnection("jdbc:mysql://locallhost:3306/fadesolutions", "root", "urubu100");
+  };
+    
+ 
 }
+
