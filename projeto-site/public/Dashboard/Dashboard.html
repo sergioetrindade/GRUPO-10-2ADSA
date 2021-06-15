@@ -141,6 +141,20 @@ var chartGraph = new Chart(ctx, {
 }
 });
 
+function adicionarDados() {
+        var tbody = document.getElementById('tbody');
+        for (var i = 0; i < dados[0].length; i++) {
+            var registro = dados[0];
+            tbody.innerHTML += [
+                `<tr>`,
+                `<td>${registro[i].nomeColaborador}</td>`,
+                `<td>${registro[i].idColaborador}</td>`,
+                `<td><a onclick=obterDadosGraficoPrimeiraVez(1)>M001</a></td>`,
+                `</tr>`,
+            ].join("\n");
+        }
+    }
+
 
 </script>
 
