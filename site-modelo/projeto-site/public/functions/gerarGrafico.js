@@ -67,11 +67,11 @@ function atualizarGrafico(idRegistro, dados) {
                 
                 plotarGrafico(dados, 1);
                 
-                setTimeout(() => atualizarGrafico(idRegistro, dados), 3000);
+                setTimeout(() => atualizarGrafico(idRegistro, dados), 30000);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idRegistro, dados), 3000);
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idRegistro, dados), 30000);
         }
     })
         .catch(function (error) {
@@ -122,8 +122,8 @@ function criarGrafico(contexto, nome, dados, momento) {
             labels: momento,
             datasets: [{
                 label: nome,
-                borderColor: 'rgb(118, 0, 113)',
-                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'orangered',
+                backgroundColor: 'orangered',
                 fill: false,
                 data: dados
             },]

@@ -25,38 +25,17 @@
         <div class="navbar">
             <div class="container-navbar">
                 <div class="div-flex">
-                    <img src="./img/QualitySystemLogoSimples.png">
-                    <h2>Quality Sistem</h2>
-                </div>
-                <ul>
-                    <li class="span-default"><a href="./dashboard.html">Visão geral</a></li>
-                    <li class="span-default"><a href="./dashboardColaborador.html">Controle de pausas</a></li>
-                    <li class="span-default active"><a href="./tabelaComputador.html">Computadores</a></li>
-                </ul>
-                <div id="div-container-dropdwon">
-                    <span class="span-default" onclick="showDropdown()">
-                        <i class="bi bi-person-circle"></i>
-                        <i class="bi bi-chevron-down"></i>
-                    </span>
-                    <span id="div-loggout" class="div-sair display-none" onclick="logoff()">Sair</span>
+                    <img src="./img/Logotipo - Grupo 10.png">
                 </div>
             </div>
         </div>
     </header>
     <main>
         <div class="div-dashboard">
-            <div class="card-title">
-                <div class="container space-between">
-                    <div>
-                        <h1>Tabela colaboradores</h1>
-                        <h3 class="margin-0">Visualizar pausas</h3>
-                    </div>
-                </div>
-            </div>
             <div class="container">
                 <div class="card-body">
                     <table>
-                        <thead>
+                        <!-- <thead>
                             <tr>
                                 <th class="mr-1">
                                     <input type="text" placeholder="Pesquisar computador">
@@ -65,12 +44,13 @@
                                     <button class="button-primary">Pesquisar</button>
                                 </th>
                             </tr>
-                        </thead>
+                        </thead> -->
                         <tbody id="tbody">
                             <tr class="table-label">
-                                <td>Colaboradores</td>
-                                <td>id</td>
-                                <td>Visualizar dados do computador</td>
+                                <h2 class="mq1">Máquinas</h2>
+                                <td><a onclick=obterDadosGraficoPrimeiraVez(1)>M001</a></td>                            
+                                <td><a onclick=obterDadosGraficoPrimeiraVez(1)>M002</a></td>
+                                <td><a onclick=obterDadosGraficoPrimeiraVez(1)>M003</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -83,14 +63,14 @@
                             <canvas id="canvas_grafico_cpu" width="100%"></canvas>
                         </div>
                     </div>
-                
+
                     <div class="div_ram">
                         <div class="card-body">
                             <p class="graficoTitle">RAM</p>
                             <canvas id="canvas_grafico_ram" width="100%"></canvas>
                         </div>
                     </div>
-                
+
                     <div class="div_disco">
                         <div class="card-body">
                             <p class="graficoTitle">DISCO</p>
@@ -128,13 +108,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="mensagem-sucesso" id="div_sucesso">
-            <span class="icon-modal flex-start" onclick="hide_mensagem_sucesso()">&times;</span>
-            <span>
-                Colaborador cadastrado com sucesso
-            </span>
-        </div>
     </main>
 
 </body>
@@ -162,12 +135,8 @@
         for (var i = 0; i < dados[0].length; i++) {
             var registro = dados[0];
             tbody.innerHTML += [
-                `<tr>`,
-                `<td>${registro[i].nomeColaborador}</td>`,
-                `<td>${registro[i].idColaborador}</td>`,
-                `<td><a onclick=obterDadosGraficoPrimeiraVez(1)>Detalhes</a></td>`,
-                `</tr>`,
-            ].join("\n");
+
+            ].join("");
         }
     }
 
