@@ -15,14 +15,14 @@
 <div class="container">
     <div class="content first-content">
             <div class="first-column">
-                <h2 class="title title-primary">FADE SOLUTIONS</h2>
-                <p class="description description-primary">Se você ja tem uma conta</p>
-                <p class="description description-primary">Logue-se aqui</p>
-                <button id="signin" class="btn btn-primary">sign-in</button>
+                <h2 class="title title-primary">Faça ja seu cadastro</h2>
+            <p class="description description-primary">caso ainda nao tenha uma conta</p>
+            <p class="description description-primary">entre aqui</p>
+            <button id="signin" class="btn btn-primary">sign-up</button>
             </div>
             <div class="secound-column">
                 <img src="./img/Logotipo - Grupo 10.png" alt="" width="90px">
-                <h2 class="title title-secundary">Criar conta</h2>
+                <h2 class="title title-secundary">bem vindo</h2>
                 <div class="social-media">
                     <ul class="list">
                         <a href="" class="link-social-media"> 
@@ -42,35 +42,21 @@
                         </a>
                     </ul>
                 </div>
-
-                <p class="description description-second">Ou cadasastre-se por email</p>
-
-                <form id="form_cadastro" method="post" onsubmit="return cadastrar()" class="form">
-                    <label class="label-input">
-                        <i class="far fa-user icon-modify"></i>
-                        <input name="login" type="text" placeholder="Usuario">
-                    </label>
-
-                    <label class="label-input">
-                        <i class="far fa-user icon-modify"></i>
-                        <input name="celular" type="text" placeholder="celular">
-                    </label>
-
-                    <label class="label-input">
-                        <i class="far fa-user icon-modify"></i>
-                        <input name="cpf" type="text" placeholder="cpf">
-                    </label>
-
+    
+                <p class="description description-second">faça seu login</p>
+    
+                <form id="form_login" method="POST" onsubmit="return entrar()" class="form">
                     <label class="label-input">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input name="loja" placeholder="loja">
+                        <input name="login" placeholder="email">
                     </label>
                     <label class="label-input">
                         <i class="fas fa-unlock icon-modify"></i>
                         <input name="senha" type="password" placeholder="senha">
-                    </label>
-                        <button id="btnSubmit" type="submit" class="btn btn-secound">sign up</button>
+                    </label>  
+                        <button class="btn btn-secound">sign in</button>
                 </form>
+    
 
                 
 
@@ -88,15 +74,15 @@
 
     <div class="content secound-content">
         <div class="first-column">
-            
-            <h2 class="title title-primary">Faça ja seu cadastro</h2>
-            <p class="description description-primary">caso ainda nao tenha uma conta</p>
-            <p class="description description-primary">entre aqui</p>
-            <button id="signup" class="btn btn-primary">sign-up</button>
+            <h2 class="title title-primary">FADE SOLUTIONS</h2>
+            <p class="description description-primary">Se você ja tem uma conta</p>
+            <p class="description description-primary">Logue-se aqui</p>
+            <button id="signup" class="btn btn-primary">sign-in</button>
+           
         </div>
         <div class="secound-column">
             <img src="./img/Logotipo - Grupo 10.png" alt="" width="90px">
-            <h2 class="title title-secundary">bem vindo</h2>
+            <h2 class="title title-secundary">Criar conta</h2>
             <div class="social-media">
                 <ul class="list">
                     <a href="" class="link-social-media"> 
@@ -117,21 +103,34 @@
                 </ul>
             </div>
 
-            <p class="description description-second">faça seu login</p>
+            <p class="description description-second">Ou cadasastre-se por email</p>
 
-            <form id="form_login" method="POST" onsubmit="return entrar()" class="form">
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()" class="form">
+                <label class="label-input">
+                    <i class="far fa-user icon-modify"></i>
+                    <input name="login" type="text" placeholder="Usuario">
+                </label>
+
+                <label class="label-input">
+                    <i class="far fa-user icon-modify"></i>
+                    <input name="celular" type="text" placeholder="celular">
+                </label>
+
+                <label class="label-input">
+                    <i class="far fa-user icon-modify"></i>
+                    <input name="cpf" type="text" placeholder="cpf">
+                </label>
+
                 <label class="label-input">
                     <i class="far fa-envelope icon-modify"></i>
-                    <input name="login" placeholder="email">
+                    <input name="loja" placeholder="loja">
                 </label>
                 <label class="label-input">
                     <i class="fas fa-unlock icon-modify"></i>
                     <input name="senha" type="password" placeholder="senha">
-                </label>  
-                    <button class="btn btn-secound">sign in</button>
+                </label>
+                    <button id="btnSubmit" type="submit" class="btn btn-secound">sign up</button>
             </form>
-
-          
         </div>  
     </div>
 </div>
