@@ -27,10 +27,10 @@ public class UsuarioValidacao {
     }
     
     
-   public Boolean login(String loginColaborador, String senha) {
+   public Boolean login(String login, String senha) {
        
        
-        login1 = loginColaborador;
+        login1 = login;
        
         PreparedStatement stn = null;
         Boolean userLoged = false;
@@ -38,7 +38,7 @@ public class UsuarioValidacao {
         try {
             String sql = "select * from dbo.usuario where login = ? and senha = ?;";
             stn = conectoryFactory.prepareStatement(sql);
-            stn.setString(1, loginColaborador);
+            stn.setString(1, login);
             stn.setString(2, senha);
             
             boolean userExists = stn.executeQuery().next();

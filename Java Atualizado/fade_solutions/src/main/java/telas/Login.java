@@ -29,9 +29,9 @@ public class Login extends javax.swing.JFrame {
         btn_entrar = new javax.swing.JButton();
         txt_user = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txt_sistema = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(43, 43, 47));
@@ -51,7 +51,7 @@ public class Login extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
         txt_password.setText("Senha:");
         jPanel5.add(txt_password);
-        txt_password.setBounds(210, 220, 57, 25);
+        txt_password.setBounds(210, 220, 100, 25);
 
         input_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,9 +80,9 @@ public class Login extends javax.swing.JFrame {
         btn_entrar.setBounds(190, 298, 110, 40);
 
         txt_user.setFont(new java.awt.Font("Malgun Gothic", 1, 18)); // NOI18N
-        txt_user.setText("E-MAIL:");
+        txt_user.setText("Email:");
         jPanel5.add(txt_user);
-        txt_user.setBounds(210, 130, 67, 25);
+        txt_user.setBounds(210, 130, 100, 25);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,12 +97,6 @@ public class Login extends javax.swing.JFrame {
 
         jPanel5.add(jPanel1);
         jPanel1.setBounds(439, 0, 0, 424);
-
-        txt_sistema.setBackground(new java.awt.Color(255, 255, 255));
-        txt_sistema.setFont(new java.awt.Font("Malgun Gothic", 0, 24)); // NOI18N
-        txt_sistema.setIcon(new javax.swing.ImageIcon("C:\\Users\\luiz.sousa\\Documents\\GitHub\\GRUPO-10-2ADSA\\projeto-site\\public\\img\\fade.png")); // NOI18N
-        jPanel5.add(txt_sistema);
-        txt_sistema.setBounds(140, 30, 200, 70);
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,6 +120,10 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel5.add(jButton2);
         jButton2.setBounds(41, 360, 190, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fade.png"))); // NOI18N
+        jPanel5.add(jLabel1);
+        jLabel1.setBounds(140, 20, 240, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,10 +215,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField input_user;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel txt_password;
-    private javax.swing.JLabel txt_sistema;
     private javax.swing.JLabel txt_user;
     // End of variables declaration//GEN-END:variables
 }
