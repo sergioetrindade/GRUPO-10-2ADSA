@@ -13,20 +13,28 @@ import org.json.JSONObject;
  */
 public class Slack {
 
-    private static final HttpClient client = HttpClient.newHttpClient();
-    private static final String URL = "https://hooks.slack.com/services/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";
+    private static HttpClient client  = HttpClient.newHttpClient();
+    private static final String URL = "https://hooks.slack.com/services/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";
 
-    public static void sendMessage(JSONObject content) throws IOException, InterruptedException {
+    public static void EnviarMensagem(String teste)  {
+        JSONObject json = new JSONObject();
+        json.put("text",teste);
 
         HttpRequest request = HttpRequest.newBuilder(
                 URI.create(URL))
                 .header("accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(content.toString()))
+                .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
                 .build();
-        
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(String.format("Status: %s", response.statusCode()));
-        System.out.println(String.format("Response: %s", response.body()));
+        try {
+            HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
     }
+
 }

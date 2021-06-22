@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="teste-api" />
         <module name="login_quality_system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="login_quality_system" target="11" />
+      <module name="teste-api" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
